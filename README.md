@@ -13,7 +13,7 @@ I refered to [Johnny Chung Lee's project](https://www.youtube.com/watch?v=Jd3-ei
   
 ## Implementation
 ### Face Tracking
-`SenseInput.cs` script tracks the user's face using Intel RealSense SDK. Enable face detection and get the data by `PXCMFaceModule.PXCMFaceData.LandmarksData.QueryLandmarks()`. Extract two eyes' position and use their average value as a representative value of the face. `LandmarksData` only has XY position values, so we additionally need to extract the depth data. `PXCMFaceModule.PXCMFaceData.DetectionData.QueryFaceAverageDepth()` gives the average depth value of the face.
+I used Intel RealSense camera to track the user's face position. `SenseInput.cs` script tracks the user's face using Intel RealSense SDK. Enable face detection and get the data by `PXCMFaceModule.PXCMFaceData.LandmarksData.QueryLandmarks()`. Extract two eyes' position and use their average value as a representative value of the face. `LandmarksData` only has XY position values, so we additionally need to extract the depth data. `PXCMFaceModule.PXCMFaceData.DetectionData.QueryFaceAverageDepth()` gives the average depth value of the face.
   
 ### Adjust Camera View
 `Calculator.cs` script calculates the position that the camera should locate, using face position data and the information about the monitors. `OffAxisProjection()` does matrix calculations to adjust the camera's frustum.
